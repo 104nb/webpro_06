@@ -5,15 +5,6 @@
     <title>おみくじ結果</title>
 </head>
 <body>
-    <h1>おみくじの結果</h1>
-    
-    <!-- 今日の運勢と勝敗の判定を表示 -->
-    <p>あなたの今日の運勢は <strong><%= luck %></strong> です。</p>
-    <p>ラッキーナンバーは <%= number %> です。</p>
-    <p>あなたの予想は <%= judgement %></p>
-
-    <hr>
-
     <!-- 次のおみくじを予想するフォーム -->
     <form action="/luck" method="get">
         <label for="omikuji">次は何が出ると思う？（例: 大吉、中吉、...）</label>
@@ -22,4 +13,3 @@
     </form>
 </body>
 </html>
-

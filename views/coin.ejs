@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>コイントス</title>
+</head>
+<body>
+    <h1>コイントスの結果</h1>
+    
+    <!-- コインの結果と勝敗の判定を表示 -->
+    <p>コインの結果は <strong><%= result %></strong> です。</p>
+    <p>あなたの予想は <%= judgement %></p>
+
+    <!-- トスの結果を表示 -->
+    <p>これまでのトスの回数: <%= total %></p>
+    <p>当たりの回数: <%= win %></p>
+
+    <hr>
+
+    <!-- 次のトスを予想するフォーム -->
+    <form action="/coin" method="get">
+        <label for="coin">次は表か裏か予想してみて！</label>
+        <input type="text" name="coin" required>
+
+        <!-- 隠しフィールドで win と total を送信 -->
+        <input type="hidden" name="win" value="<%= win %>">
+        <input type="hidden" name="total" value="<%= total %>">
+
+        <input type="submit" value="トスする！">
+    </form>
+</body>
+</html>
+
+

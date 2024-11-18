@@ -19,13 +19,61 @@ app.get("/icon", (req, res) => {
 });
 
 app.get("/luck", (req, res) => {
-  const num = Math.floor( Math.random() * 6 + 1 );
+  // ユーザの予想を取得 (req.query.omikuji)
+  let userGuess = req.query.omikuji;
+  
+  // ランダムに1から6の数字を生成して運勢を決定
+  const num = Math.floor(Math.random() * 6 + 1);
   let luck = '';
-  if( num==1 ) luck = '大吉';
-  else if( num==2 ) luck = '中吉';
-  console.log( 'あなたの運勢は' + luck + 'です' );
-  res.render( 'luck', {number:num, luck:luck} );
+  
+  switch(num) {
+    case 1: luck = '大吉'; break;
+    case 2: luck = '中吉'; break;
+    case 3: luck = '小吉'; break;
+    case 4: luck = '吉'; break;
+    case 5: luck = '末吉'; break;
+    case 6: luck = '凶'; break;
+  }
+
+  // 勝敗判定
+  let judgement = '';
+  if (userGuess === luck) {
+    judgement = '当たり！';
+  } else {
+    judgement = '残念、ハズレ。';
+  }
+
+  // 結果をテンプレートに渡して表示
+  res.render('luck', { number: num, luck: luck, judgement: judgement });
 });
+
+app.get("/coin", (req, res) => {
+  // ユーザの予想を取得 (req.query.coin)
+  let userGuess = req.query.coin;
+
+  // 回数をクエリパラメータから取得、なければ0で初期化
+  let total = Number(req.query.total) || 0;
+  let win = Number(req.query.win) || 0;
+
+  // コインの結果をランダムに生成 (0: 表, 1: 裏)
+  const coinFlip = Math.floor(Math.random() * 2); // 0か1を生成
+  let result = coinFlip === 0 ? '表' : '裏';
+
+  // 勝敗判定
+  let judgement = '';
+  if (userGuess === result) {
+    judgement = '当たり！';
+    win += 1; // 当たりの場合はカウント
+  } else {
+    judgement = '残念、ハズレ。';
+  }
+
+  total += 1; // トスの回数をカウント
+
+  // 結果をテンプレートに渡して表示
+  res.render('coin', { result: result, judgement: judgement, win: win, total: total });
+});
+
 
 app.get("/janken", (req, res) => {
   let hand = req.query.hand;

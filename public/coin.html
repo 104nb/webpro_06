@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>コイントス</title>
+</head>
+<body>
+    <!-- 次のトスを予想するフォーム -->
+    <form action="/coin" method="get">
+        <label for="coin">次は表か裏か予想してみて！</label>
+        <input type="text" name="coin" required>
+
+        <!-- 隠しフィールドで win と total を送信 -->
+        <input type="hidden" name="win" value="<%= win %>">
+        <input type="hidden" name="total" value="<%= total %>">
+
+        <input type="submit" value="トスする！">
+    </form>
+</body>
+</html>
