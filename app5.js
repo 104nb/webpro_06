@@ -113,6 +113,11 @@ app.get("/janken", (req, res) => {
   res.render('janken', display);
 });
 
+app.get("/get_test", (req, res) => {
+  res.json({
+    answer: 0
+  })
+});
 
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
