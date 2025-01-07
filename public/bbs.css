@@ -1,13 +1,81 @@
+/* 投稿全体のスタイル */
 .cover {
     border-bottom: 1px solid #c0c0c0;
     margin: 3px;
+    padding: 10px;
 }
 
+/* 投稿者名 */
 .name {
     font-weight: bold;
     width: 8em;
 }
 
+/* メッセージ内容 */
 .mes {
     margin-left: 30px;
+    display: block;
+}
+
+/* いいねボタン */
+.like-button {
+    font-size: 20px;
+    color: gray;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.like-button:hover {
+    color: red;
+}
+
+/* いいねカウント */
+.like-count {
+    margin-left: 5px;
+    font-size: 14px;
+    color: black;
+}
+
+/* 返信リスト */
+.reply-list {
+    margin-top: 10px;
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+/* 返信リストの個別返信 */
+.reply-list li {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* 返信ボタン */
+.reply-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.reply-button:hover {
+    background-color: #218838;
+}
+
+/* 投稿フォームボタン */
+button {
+    padding: 8px 12px;
+    margin: 5px 0;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
